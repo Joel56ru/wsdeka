@@ -15,6 +15,9 @@ func main() {
 		serveWs(c.Writer, c.Request, roomId)
 	})
 	router.Use(static.Serve("/", static.LocalFile("./views", true)))
+	router.Use(static.Serve("/cards", static.LocalFile("./views", true)))
+	router.Use(static.Serve("/viewer", static.LocalFile("./views", true)))
+	router.Use(static.Serve("/viewer/obs", static.LocalFile("./views", true)))
 
 	router.Run("localhost:8080")
 }
